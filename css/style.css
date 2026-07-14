@@ -93,16 +93,21 @@ img{max-width:100%;display:block;}
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none;}
 .brand img{height:56px;width:auto;}
 
-.main-nav{display:flex;align-items:center;gap:4px;}
+.main-nav{
+  display:flex;align-items:center;gap:2px;
+  background:#a7b6c7;border-radius:999px;padding:6px;
+}
 .main-nav a{
   font-family:var(--ui);font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;
-  color:var(--steel);text-decoration:none;padding:10px 16px;border-radius:5px;
+  color:var(--steel);text-decoration:none;padding:10px 16px;border-radius:999px;
   transition:background .15s, color .15s;
 }
-.main-nav a:hover,.main-nav a:focus-visible{background:rgba(15,27,46,0.08);color:var(--ink);}
-.main-nav a.current{color:var(--ink);font-weight:700;}
+.main-nav a:hover,.main-nav a:focus-visible{background:rgba(15,27,46,0.1);color:var(--ink);}
+.main-nav a.current{background:var(--ink);color:#fff;font-weight:700;}
 .main-nav a.current::after{content:"";}
-.main-nav .btn.primary{margin-left:8px;}
+.main-nav .btn.primary{
+  margin-left:8px;padding:9px 16px;font-size:.7rem;border-radius:999px;
+}
 
 .nav-toggle{
   display:none;background:none;border:1px solid rgba(15,27,46,0.3);border-radius:6px;
@@ -117,14 +122,15 @@ img{max-width:100%;display:block;}
 
 @media (max-width:900px){
   .main-nav{
-    position:fixed;inset:82px 0 0 0;background:#e6e8eb;
+    position:fixed;inset:82px 0 0 0;background:#e6e8eb;border-radius:0;
     flex-direction:column;align-items:stretch;padding:14px 20px;gap:2px;
     transform:translateY(-8px);opacity:0;pointer-events:none;
     transition:opacity .18s ease, transform .18s ease;
   }
   .main-nav.open{opacity:1;transform:translateY(0);pointer-events:auto;}
-  .main-nav a{padding:14px 8px;font-size:.9rem;border-bottom:1px solid var(--border);}
-  .main-nav .btn.primary{margin:14px 8px 0;text-align:center;}
+  .main-nav a{padding:14px 8px;font-size:.9rem;border-radius:0;border-bottom:1px solid var(--border);}
+  .main-nav a.current{background:transparent;color:var(--ink);}
+  .main-nav .btn.primary{margin:14px 8px 0;padding:14px 24px;font-size:.82rem;text-align:center;}
   .nav-toggle{display:block;}
 }
 
