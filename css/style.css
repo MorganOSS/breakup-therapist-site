@@ -267,10 +267,17 @@ section.block.tight{padding:48px 0;}
 /* ---------------- trust badge band ---------------- */
 .trust-band{background:var(--ink-soft);padding:64px 0;}
 .trust-row{
-  display:flex;flex-wrap:wrap;gap:20px 44px;justify-content:center;align-items:center;margin-top:36px;
+  display:flex;flex-wrap:wrap;gap:16px;justify-content:center;align-items:center;margin-top:36px;
 }
-.trust-row span{
-  font-family:var(--ui);font-weight:700;font-size:1rem;letter-spacing:.02em;color:#c7cfd7;
+.insurance-pill{
+  background:#fff;border-radius:999px;height:58px;padding:0 30px;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 10px 24px -12px rgba(0,0,0,.5);
+}
+.insurance-pill img{height:24px;width:auto;display:block;}
+.insurance-pill.text-only{
+  background:transparent;box-shadow:none;border:1px solid rgba(238,241,244,.35);
+  font-family:var(--ui);font-weight:700;font-size:.82rem;letter-spacing:.05em;color:#eef1f4;
   text-transform:uppercase;
 }
 
