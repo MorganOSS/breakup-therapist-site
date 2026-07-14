@@ -396,7 +396,11 @@ section.block.tight{padding:48px 0;}
   display:grid;grid-template-columns:1.1fr 1fr 1fr 1fr;gap:32px;
   padding-bottom:32px;border-bottom:1px solid rgba(230,232,235,0.12);
 }
-.footer-brand img{height:64px;width:auto;margin-bottom:14px;}
+.footer-brand img{
+  width:120px;height:120px;padding:26px;box-sizing:border-box;
+  object-fit:contain;object-position:center;
+  background:var(--bg);border-radius:50%;margin-bottom:14px;
+}
 .footer-brand p{font-size:.85rem;color:#9fabb8;max-width:32ch;}
 .footer-col h5{
   color:#8fa89a;text-transform:uppercase;letter-spacing:.08em;font-size:.68rem;margin:0 0 12px;
