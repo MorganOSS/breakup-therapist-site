@@ -253,6 +253,29 @@ section.block.tight{padding:48px 0;}
 .split-panel .split-photo img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/5;}
 .split-panel .split-text p{color:var(--text-muted);font-size:1.02rem;margin-top:16px;max-width:48ch;}
 
+.split-panel .split-video{max-width:300px;margin:0 auto;border-radius:14px;overflow:hidden;box-shadow:var(--shadow);background:#000;}
+.split-panel .split-video video{width:100%;aspect-ratio:9/16;object-fit:cover;display:block;}
+
+/* ---------------- numbered steps (how it works) ---------------- */
+.steps{display:flex;flex-direction:column;margin-top:8px;}
+.step{display:grid;grid-template-columns:56px 1fr;gap:22px;padding:24px 0;border-top:1px solid var(--border);}
+.step:first-child{border-top:none;padding-top:0;}
+.step .step-num{font-family:var(--serif);font-size:2.1rem;color:var(--gold);line-height:1;}
+.step h3{font-family:var(--ui);font-size:1rem;font-weight:700;margin-bottom:8px;color:var(--text);text-transform:uppercase;letter-spacing:.02em;}
+.step p{color:var(--text-muted);font-size:1rem;max-width:65ch;}
+
+/* ---------------- pricing card ---------------- */
+.price-card{
+  background:var(--ink);color:#eef1f4;border-radius:14px;padding:44px 40px;
+  max-width:520px;margin:0 auto;text-align:center;
+}
+.price-card .price{font-family:var(--serif);font-size:3.6rem;color:#f3f5f7;line-height:1;}
+.price-card .price-sub{font-family:var(--ui);font-size:.8rem;text-transform:uppercase;letter-spacing:.07em;color:var(--pale-blue);margin-top:10px;}
+.price-card .price-features{list-style:none;margin:28px 0 0;padding:0;text-align:left;display:flex;flex-direction:column;gap:13px;}
+.price-card .price-features li{padding-left:26px;position:relative;font-size:.96rem;color:#c7cfd7;}
+.price-card .price-features li::before{content:"✓";position:absolute;left:0;color:var(--sage);font-weight:700;}
+.price-card .btn{margin-top:30px;}
+
 /* ---------------- stat / fact band ---------------- */
 .fact-band{background:var(--ink);padding:56px 0;}
 .fact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;}
