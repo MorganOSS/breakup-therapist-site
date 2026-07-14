@@ -15,7 +15,6 @@
   --bg:#e6e8eb;
   --bg-alt:#d3d6d8;
   --sage:#7f9a8b;
-  --plum:#5e3d7d;
   --gold:#b8934a;
 
   --surface:#ffffff;
@@ -129,24 +128,29 @@ img{max-width:100%;display:block;}
   .nav-toggle{display:block;}
 }
 
-/* ---------------- hero ---------------- */
+/* ---------------- hero: full-bleed photo, bottom-left overlay ---------------- */
 .hero{
-  background:linear-gradient(155deg, var(--ink) 0%, var(--ink-soft) 55%, #2c3f52 100%);
+  position:relative;
+  min-height:78vh;
+  display:flex;
+  align-items:flex-end;
   color:#eef1f4;
+  overflow:hidden;
 }
-.hero .wrap{
-  padding:64px 28px 76px;
-  display:grid;grid-template-columns:1.3fr .7fr;gap:44px;align-items:center;
+.hero img.hero-bg{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:82% 15%;z-index:0;
 }
-.hero h1{color:#f3f5f7;font-size:clamp(2rem,4vw,3rem);max-width:16ch;}
-.hero .sub{color:#c4cdd8;margin-top:20px;max-width:48ch;font-size:1.05rem;}
+.hero::after{
+  content:"";position:absolute;inset:0;z-index:1;
+  background:
+    linear-gradient(0deg, rgba(15,27,46,.9) 0%, rgba(15,27,46,.6) 40%, rgba(15,27,46,.22) 68%, rgba(15,27,46,.08) 100%),
+    linear-gradient(100deg, rgba(15,27,46,.75) 0%, rgba(15,27,46,.4) 32%, rgba(15,27,46,0) 60%);
+}
+.hero .wrap{position:relative;z-index:2;padding:56px 28px 64px;width:100%;}
+.hero h1{color:#f3f5f7;font-size:clamp(2.1rem,5vw,3.4rem);max-width:15ch;}
+.hero .sub{color:#d3d9e0;margin-top:20px;max-width:50ch;font-size:1.05rem;}
 .hero .ctas{display:flex;gap:14px;margin-top:30px;flex-wrap:wrap;}
 .hero .eyebrow{color:#d8c184;}
-.hero-photo{
-  border-radius:12px;overflow:hidden;box-shadow:var(--shadow);
-  border:1px solid rgba(238,241,244,0.15);
-}
-.hero-photo img{width:100%;height:100%;object-fit:cover;aspect-ratio:3/4;}
 
 .page-hero{
   background:linear-gradient(155deg, var(--ink) 0%, var(--ink-soft) 100%);
@@ -180,7 +184,7 @@ section.block.tight{padding:48px 0;}
   margin-bottom:16px;
 }
 .tag.core{background:rgba(107,129,157,0.16);color:var(--slate-blue);}
-.tag.depth{background:rgba(94,61,125,0.13);color:var(--plum);}
+.tag.depth{background:rgba(61,82,107,0.15);color:var(--steel);}
 .tag.growth{background:rgba(127,154,139,0.16);color:var(--sage);}
 .tag.warm{background:rgba(184,147,74,0.16);color:var(--gold);}
 
@@ -190,7 +194,7 @@ section.block.tight{padding:48px 0;}
   background:var(--surface);border:1px solid var(--border);border-radius:10px;
   padding:26px 24px;border-top:3px solid var(--slate-blue);
 }
-.scard.depth{border-top-color:var(--plum);}
+.scard.depth{border-top-color:var(--steel);}
 .scard.growth{border-top-color:var(--sage);}
 .scard h3{font-family:var(--serif);font-size:1.25rem;margin-bottom:12px;}
 .scard p{font-size:.95rem;color:var(--text-muted);}
@@ -219,6 +223,57 @@ section.block.tight{padding:48px 0;}
 .philosophy{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:32px 34px;max-width:78ch;}
 .philosophy p + p{margin-top:16px;}
 
+/* ---------------- split panel: text + photo (about-style intro) ---------------- */
+.split-panel{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;}
+.split-panel .split-photo{border-radius:10px;overflow:hidden;box-shadow:var(--shadow);}
+.split-panel .split-photo img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/5;}
+.split-panel .split-text p{color:var(--text-muted);font-size:1.02rem;margin-top:16px;max-width:48ch;}
+
+/* ---------------- stat / fact band ---------------- */
+.fact-band{background:var(--ink);padding:56px 0;}
+.fact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;}
+.fact-card{background:var(--ink-soft);border-radius:12px;padding:36px 28px;text-align:center;}
+.fact-card .fact-value{font-family:var(--ui);font-weight:700;font-size:clamp(1.4rem,2.6vw,1.9rem);color:#f3f5f7;line-height:1.25;}
+.fact-card .fact-label{font-family:var(--ui);font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;color:var(--pale-blue);margin-top:10px;}
+
+/* ---------------- centered section header (gallery-break style) ---------------- */
+.section-head-center{max-width:56ch;margin:0 auto 36px;text-align:center;}
+.section-head-center .eyebrow{text-align:center;}
+
+/* ---------------- dark icon service cards ---------------- */
+.grid-services-dark{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:8px;}
+.scard-dark{background:var(--ink);border-radius:10px;padding:30px 26px;color:#eef1f4;}
+.scard-dark .icon{
+  width:44px;height:44px;border:1px solid rgba(238,241,244,.35);border-radius:8px;
+  display:flex;align-items:center;justify-content:center;margin-bottom:20px;
+}
+.scard-dark .icon svg{width:22px;height:22px;stroke:#eef1f4;fill:none;stroke-width:1.5;}
+.scard-dark h3{font-family:var(--ui);font-size:.92rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:#f3f5f7;margin-bottom:12px;}
+.scard-dark p{font-size:.92rem;color:#b7c0ca;}
+
+/* ---------------- trust badge band ---------------- */
+.trust-band{background:var(--ink-soft);padding:64px 0;}
+.trust-row{
+  display:flex;flex-wrap:wrap;gap:20px 44px;justify-content:center;align-items:center;margin-top:36px;
+}
+.trust-row span{
+  font-family:var(--ui);font-weight:700;font-size:1rem;letter-spacing:.02em;color:#c7cfd7;
+  text-transform:uppercase;
+}
+
+@media (max-width:820px){
+  .split-panel{grid-template-columns:1fr;}
+  .split-panel .split-photo{order:-1;max-width:360px;}
+}
+
+@media (max-width:700px){
+  .hero::after{
+    background:
+      linear-gradient(0deg, rgba(15,27,46,.92) 0%, rgba(15,27,46,.78) 45%, rgba(15,27,46,.55) 100%),
+      rgba(15,27,46,.25);
+  }
+}
+
 /* ---------------- credibility strip ---------------- */
 .strip{
   display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
@@ -231,10 +286,10 @@ section.block.tight{padding:48px 0;}
 
 /* ---------------- cta banner ---------------- */
 .cta-banner{
-  background:var(--plum);color:#f2ecf6;border-radius:12px;
+  background:var(--ink);color:#eef1f4;border-radius:12px;
   padding:40px 44px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;
 }
-.cta-banner h3{color:#f7f3fa;font-size:1.5rem;max-width:26ch;}
+.cta-banner h3{color:#f3f5f7;font-size:1.5rem;max-width:26ch;}
 
 /* ---------------- contact page ---------------- */
 .contact-strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px;}
